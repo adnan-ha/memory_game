@@ -1,0 +1,130 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  background-image: url(imgs/background.jpg);
+  background-size: cover;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgb(0 0 0 / 75%);
+}
+
+.lay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #00a1ffcf;
+  z-index: 2;
+}
+
+.lay span {
+  background-color: #f9843e;
+  color: white;
+  display: block;
+  width: 140px;
+  height: 45px;
+  text-align: center;
+  line-height: 45px;
+  font-size: 18px;
+  font-weight: 600;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  border-radius: 6px;
+  z-index: 3;
+}
+
+.header {
+  width: 660px;
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  border: 2px solid #2196F3;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 18px;
+  position: relative;
+  background: rgb(255 255 255 / 75%);
+}
+
+.game-board {
+  width: 640px;
+  margin: 25px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.game-board.none {
+  pointer-events: none;
+}
+
+.game-board .card {
+  border: 5px solid #2196f3;
+  position: relative;
+  transition: 0.5s;
+  text-align: center;
+  transform-style: preserve-3d;
+  width: 115px;
+  height: 115px;
+  cursor: pointer;
+}
+
+.game-board .card.flipped {
+  transform: rotateY(180deg);
+}
+
+.game-board .card.stay {
+  transform: rotateY(180deg);
+}
+
+.game-board .card .face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+
+.game-board .front {
+  background-color: #333;
+  line-height: 99px;
+}
+
+.game-board .front::before {
+  content: "?";
+  color: white;
+  font-size: 60px;
+}
+
+.game-board .back {
+  background-color: rgb(6 66 45 / 95%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotateY(180deg);
+}
+
+
+.game-board img {
+  width: 65px;
+  height: 65px;
+}
